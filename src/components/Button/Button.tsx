@@ -5,10 +5,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   basic?: boolean;
 };
 
-const Button: FC<ButtonProps> = ({basic, ...props}) => {
+const Button: FC<ButtonProps> = ({basic, children, ...props}) => {
   const btnClassName = basic ? 'basic' : '';
 
-  return <button className={btnClassName} {...props}>{props.children}</button>
+  return <button className={btnClassName} {...props}>{children}</button>
 };
 
 export default Button;

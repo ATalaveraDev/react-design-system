@@ -1,0 +1,5 @@
+.buttons-container button,
+.tooltips-container div {
+  margin: 15px;
+  display: inline-block;
+}
