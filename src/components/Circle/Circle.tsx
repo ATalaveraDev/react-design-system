@@ -1,5 +1,4 @@
-import d3 from 'd3';
-import { FC, SVGProps, useEffect } from 'react';
+import { FC, SVGProps } from 'react';
 
 interface CircleType extends SVGProps<SVGElement> {
   color?: string;
