@@ -1,5 +1,6 @@
 import './App.css'
 import Button from './components/Button/Button'
+import Circle from './components/Circle/Circle'
 import Tooltip from './components/Tooltip/Tooltip'
 
 function App() {
@@ -18,6 +19,11 @@ function App() {
         <Tooltip tailPosition='top'>This is a basic tooltip (top tail)</Tooltip>
         <Tooltip tailPosition='left'>This is a basic tooltip (left tail)</Tooltip>
       </div>
+
+      <h2>Circles</h2>
+      <Circle d="50" />
+      <Circle d="80" color="blue" />
+      <Circle d="20" color="#E77013" />
     </>
   )
 }
