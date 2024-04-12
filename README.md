@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# Design System using React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Work in progress...
 
-Currently, two official plugins are available:
+The purpose of this repository is to create a design system using React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+[&#10004;] Components should be customizable
 
-## Expanding the ESLint configuration
+## Components
+- Buttons
+- Circles
+- Tooltips
+- Charts and Axis
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Charts and Axis
+Using D3 but keeping always control of the DOM.
 
-- Configure the top-level `parserOptions` property like this:
+### Buttons
+ToDo: Add description
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Circles
+ToDo: Add description
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Tooltips
+ToDo: Add description
