@@ -41,8 +41,6 @@ const VerticalAxis: FC<VerticalAxisProps> = ({domain=[0, 10], range=[5, 145], co
     <svg>
       <path d={['M', +tickWidth + 30, range[0], 'h', tickWidth, 'V', range[1], 'h', -tickWidth].join(' ')} fill="none" stroke={color ?? 'currentColor'} />
       {ticks.map(({value, yOffset}) => {
-        console.log(yOffset);
-        console.log(value);
         return <HorizontalTick key={value} value={value} yOffset={yOffset} color={tickColor} width={+tickWidth}  />
       })}
     </svg>

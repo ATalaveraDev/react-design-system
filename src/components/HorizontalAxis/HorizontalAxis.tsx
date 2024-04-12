@@ -37,7 +37,7 @@ const HorizontalAxis: FC<HorizontalAxisProps> = ({domain=[0, 10], range=[10, 290
   }, [domain.join('-'), range.join('-')]);
 
   return (
-    <svg>
+    <svg style={{overflow: 'visible'}}>
       <path d={['M', range[0], tickHeight, 'v', -tickHeight, 'H', range[1], 'v', tickHeight].join(' ')} fill="none" stroke={color ?? 'currentColor'} />
       {ticks.map(({value, xOffset}) => {
         return <Tick key={value} value={value} xOffset={xOffset} color={tickColor} height={+tickHeight}  />

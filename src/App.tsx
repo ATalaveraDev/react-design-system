@@ -3,6 +3,7 @@ import './App.css'
 import Button from './components/Button/Button'
 import Circle from './components/Circle/Circle'
 import HorizontalAxis from './components/HorizontalAxis/HorizontalAxis'
+import ResponsiveChart from './components/ResponsiveChart/ResponsiveChart'
 import Tooltip from './components/Tooltip/Tooltip'
 import VerticalAxis from './components/VerticalAxis/VerticalAxis'
 
@@ -28,13 +29,11 @@ function App() {
       <Circle d="80" color="blue" />
       <Circle d="20" color="#E77013" />
 
-      <h2>Axis</h2>
-      <div style={{'width': '100px', display: 'inline-block'}}>
-        <VerticalAxis domain={[0, 50]} color="#E77013" tickColor="green" tickWidth="5" />
-      </div>
-      <div style={{'width': '100px', display: 'inline-block'}}>
-        <HorizontalAxis domain={[0, 50]} color="#E77013" tickColor="green" tickHeight="5" />
-      </div>
+      <h2>Axis & Charts</h2>
+      <VerticalAxis domain={[0, 50]} color="#E77013" tickColor="green" tickWidth="5" />
+      <ResponsiveChart>
+        <HorizontalAxis domain={[0, 180]} color="red" tickColor="black" tickHeight="5" />
+      </ResponsiveChart>
     </>
   )
 }
