@@ -1,10 +1,13 @@
 :root {
   --color-primary: blueviolet;
+  --color-secondary: #2d2d2d;
   --white: #FFF;
   --small: 0.8rem;
   --normal: 1rem;
   --large: 1.2rem;
-  --x-large: 1.6rem; 
+  --x-large: 1.6rem;
+
+  --font-size-large: calc(var(--normal) * 4);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,14 +25,50 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background: rgb(238,174,202);
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 h1, h2 {
   margin: 0;
-  color: blueviolet;
+  color: var(--color-primary);
+}
+
+aside {
+  padding: var(--x-large)
+}
+
+main {
+  margin: var(--normal) auto;
+  min-width: 60%;
+
+  h1 {
+    padding: var(--normal);
+    font-size: var(--font-size-large);
+    color: var(--color-secondary);
+  }
+
+  section {
+    padding: var(--large);
+
+    h3 {
+      margin: 0;
+    }
+
+    pre {
+      padding: 0;
+    }
+  }
+}
+
+pre[class*="language-"] {
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 @media (prefers-color-scheme: light) {
