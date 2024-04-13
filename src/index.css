@@ -14,9 +14,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -37,8 +34,16 @@ aside {
 }
 
 main {
-  margin: var(--normal) auto;
-  min-width: 60%;
+  display: flex;
+
+  .main-left {
+    margin: var(--normal) auto;
+    min-width: 60%;
+  }
+
+  .main-right {
+    width: 220px;
+  }
 
   h1 {
     padding: var(--normal);
@@ -52,15 +57,13 @@ main {
     h3 {
       margin: 0;
     }
-
-    pre {
-      padding: 0;
-    }
   }
 }
 
+
 pre[class*="language-"] {
   padding: 0;
+  font-size: 1rem;
 }
 
 #root {
@@ -76,10 +79,18 @@ pre[class*="language-"] {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
+}
+
+@media (max-width: 1140px) {
+  .main-left {
+    width: 100%;
   }
-  button {
-    background-color: #f9f9f9;
+  
+  pre[class*="language-"] {
+    font-size: 0.8rem;
+  }
+
+  .main-right {
+    display: none;
   }
 }

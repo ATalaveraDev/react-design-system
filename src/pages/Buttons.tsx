@@ -1,4 +1,5 @@
 import CodeSnippet from '../UI/CodeSnippet/CodeSnippet';
+
 import Button from '../components/Button/Button';
 
 const ButtonsPage = () => {
@@ -18,7 +19,7 @@ const ButtonsPage = () => {
       <CodeSnippet code={snippet} />
     </section>
     <section>
-      <h3>API</h3>
+      <h3>API Reference</h3>
     </section>
   </>
 };

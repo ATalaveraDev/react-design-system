@@ -12,7 +12,7 @@ const ChartsPage = () => {
   `;
   
   return <>
-    <h1>Axis & Responsive Charts</h1>
+    <h1>Axis & Responsive Charts (In progress)</h1>
     <section className="charts-container">
       <ResponsiveChart 
         renderX={(range: number[]) => <HorizontalAxis range={range} domain={[0, 180]} color="red" tickColor="black" tickHeight="5" />}
@@ -24,7 +24,7 @@ const ChartsPage = () => {
       <CodeSnippet code={snippet} />
     </section>
     <section>
-      <h3>API</h3>
+      <h3>API Reference</h3>
     </section>
   </>;
 };

@@ -1,4 +1,5 @@
 import CodeSnippet from '../UI/CodeSnippet/CodeSnippet';
+import ContentNav from '../UI/ContentNav/ContentNav';
 import Circle from '../components/Circle/Circle';
 
 const CirclesPage = () => {
@@ -20,7 +21,7 @@ const CirclesPage = () => {
       <CodeSnippet code={snippet} />
     </section>
     <section>
-      <h3>API</h3>
+      <h3>API Reference</h3>
     </section>
   </>;
 };

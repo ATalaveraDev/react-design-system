@@ -22,7 +22,7 @@ const TooltipsPage = () => {
       <CodeSnippet code={snippet} />
     </section>
     <section>
-      <h3>API</h3>
+      <h3>API Reference</h3>
     </section>
   </>
 };

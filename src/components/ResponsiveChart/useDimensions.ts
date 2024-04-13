@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const combineChartDimensions = (dimensions: any) => {
+  console.log(dimensions)
   const parsedDimensions = {
       ...dimensions,
       marginTop: dimensions.marginTop || 10,
