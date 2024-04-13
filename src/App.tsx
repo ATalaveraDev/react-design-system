@@ -1,16 +1,20 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
+import Sidebar from './UI/Sidebar/Sidebar'
 
-import Button from './components/Button/Button'
-import Circle from './components/Circle/Circle'
-import HorizontalAxis from './components/HorizontalAxis/HorizontalAxis'
-import ResponsiveChart from './components/ResponsiveChart/ResponsiveChart'
-import Tooltip from './components/Tooltip/Tooltip'
-import VerticalAxis from './components/VerticalAxis/VerticalAxis'
+import ButtonsPage from './pages/Buttons'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <ButtonsPage />
+  }
+]);
 
 function App() {
-  return (
-    <>
-      <h2>Buttons</h2>
+  return <RouterProvider router={router} />
+      // <Sidebar />
+      {/* <h2>Buttons</h2>
       <div className="buttons-container">
         <Button>No styles</Button>
         <Button basic type="submit" onClick={() => console.log('hola')}>Basic</Button>
@@ -33,9 +37,8 @@ function App() {
       <ResponsiveChart 
         renderX={(range: number[]) => <HorizontalAxis range={range} domain={[0, 180]} color="red" tickColor="black" tickHeight="5" />}
         renderY={(range: number[]) => <VerticalAxis range={range} domain={[0, 50]} color="red" tickColor="red" tickWidth="5" />}
-      />
-    </>
-  )
+      /> */}
+  
 }
 
 export default App
