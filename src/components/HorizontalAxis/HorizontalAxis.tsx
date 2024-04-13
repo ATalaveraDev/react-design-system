@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
 import { FC, SVGProps, useMemo } from 'react';
 
-interface HorizontalAxisProps extends SVGProps<SVGElement> {
+export interface HorizontalAxisProps extends SVGProps<SVGElement> {
   domain?: [number, number];
-  range?: [number, number];
+  range: number[];
   color?: string;
   tickColor?: string;
   tickHeight?: string | number;

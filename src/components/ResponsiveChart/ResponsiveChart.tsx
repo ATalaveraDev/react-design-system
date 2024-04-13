@@ -1,4 +1,4 @@
-import { Children, FC, PropsWithChildren, ReactNode, cloneElement, useMemo } from 'react';
+import { FC, ReactElement, useMemo } from 'react';
 
 import * as d3 from 'd3';
 
@@ -11,23 +11,29 @@ const CHART_DEFAULTS = {
   marginLeft: 90
 };
 
-const ResponsiveChart: FC<any> = (props) => {
+type EnrichedChildren = {
+  renderX?: (range: number[]) => ReactElement;
+  renderY?: (range: number[]) => ReactElement;
+}
+
+const ResponsiveChart: FC<EnrichedChildren> = ({renderX, renderY}) => {
   const [ref, dimensions] = useDimensions(CHART_DEFAULTS);
 
   const xScale = useMemo(() => {
-    return d3.scaleLinear().domain([0, 100]).range([0, dimensions.boundedWidth]);
+    return d3.scaleLinear().domain([0, 0]).range([0, dimensions.boundedWidth]);
   }, [dimensions.boundedWidth]);
 
-  const renderChildren = () => {
-    return Children.map(props.children, (axis: any) => cloneElement(axis, { range: xScale.range() }));
-  };
+  const yScale = useMemo(() => {
+    return d3.scaleLinear().domain([0, 0]).range([0, dimensions.boundedHeight]);
+  }, [dimensions.boundedHeight]);
 
   return <div className="wrapper" ref={ref} style={{height: '300px'}}>
     <svg width={dimensions.width} height={dimensions.height}>
       <g transform={`translate(${[dimensions.marginLeft, dimensions.marginTop].join(',')})`}>
         <rect width={dimensions.boundedWidth} height={dimensions.boundedHeight} fill="lavender" />
         <g transform={`translate(${[0, dimensions.boundedHeight].join(',')})`}>
-          {renderChildren()}
+          {renderX && renderX(xScale.range())}
+          {renderY && renderY(yScale.range())}
         </g>
       </g>
     </svg>

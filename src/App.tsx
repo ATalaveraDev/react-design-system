@@ -30,10 +30,10 @@ function App() {
       <Circle d="20" color="#E77013" />
 
       <h2>Axis & Charts</h2>
-      <VerticalAxis domain={[0, 50]} color="#E77013" tickColor="green" tickWidth="5" />
-      <ResponsiveChart>
-        <HorizontalAxis domain={[0, 180]} color="red" tickColor="black" tickHeight="5" />
-      </ResponsiveChart>
+      <ResponsiveChart 
+        renderX={(range: number[]) => <HorizontalAxis range={range} domain={[0, 180]} color="red" tickColor="black" tickHeight="5" />}
+        renderY={(range: number[]) => <VerticalAxis range={range} domain={[0, 50]} color="red" tickColor="red" tickWidth="5" />}
+      />
     </>
   )
 }

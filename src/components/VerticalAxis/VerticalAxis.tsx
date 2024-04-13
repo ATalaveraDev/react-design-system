@@ -3,7 +3,7 @@ import { FC, SVGProps, useMemo } from 'react';
 
 interface VerticalAxisProps extends SVGProps<SVGElement> {
   domain?: [number, number];
-  range?: [number, number];
+  range: number[];
   color?: string;
   tickColor?: string;
   tickWidth?: string | number;
@@ -18,9 +18,9 @@ interface HorizontalTickProps extends SVGProps<SVGElement> {
 
 const HorizontalTick: FC<HorizontalTickProps> = ({value, yOffset, width, color}) => {
   return (
-    <g transform={`translate(0, ${yOffset})`}>
-      <line x1={width+35} x2={30+width} stroke={color} />
-      <text key={value} style={{fontSize: '10px', textAnchor: 'middle', transform: `translate(${30 - width}px, 2.5px)`}}>{value}</text>
+    <g transform={`translate(0, -${yOffset})`}>
+      <line x2={-width} stroke={color} />
+      <text key={value} style={{fontSize: '10px', textAnchor: 'middle', transform: `translate(-${width+10}px, 2.5px)`}}>{value}</text>
     </g>
   );
 };
@@ -38,8 +38,8 @@ const VerticalAxis: FC<VerticalAxisProps> = ({domain=[0, 10], range=[5, 145], co
   }, [domain.join('-'), range.join('-')]);
 
   return (
-    <svg>
-      <path d={['M', +tickWidth + 30, range[0], 'h', tickWidth, 'V', range[1], 'h', -tickWidth].join(' ')} fill="none" stroke={color ?? 'currentColor'} />
+    <svg style={{overflow: 'visible'}}>
+      <path d={['M', -tickWidth*2, 0, 'h', (tickWidth as number)*2, 'V', -range[1], 'h', -tickWidth].join(' ')} fill="none" stroke={color ?? 'currentColor'} />
       {ticks.map(({value, yOffset}) => {
         return <HorizontalTick key={value} value={value} yOffset={yOffset} color={tickColor} width={+tickWidth}  />
       })}
