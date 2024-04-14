@@ -22,42 +22,13 @@
 
 body {
   margin: 0;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 h1, h2 {
   margin: 0;
-  color: var(--color-primary);
-}
-
-aside {
-  padding: var(--x-large)
-}
-
-main {
-  display: flex;
-
-  .main-left {
-    margin: var(--normal) auto;
-    min-width: 60%;
-  }
-
-  .main-right {
-    width: 220px;
-  }
-
-  h1 {
-    padding: var(--normal);
-    font-size: var(--font-size-large);
-    color: var(--color-secondary);
-  }
-
-  section {
-    padding: var(--large);
-
-    h3 {
-      margin: 0;
-    }
-  }
+  color: var(--color-secondary);
 }
 
 
@@ -68,29 +39,87 @@ pre[class*="language-"] {
 
 #root {
   min-height: 100vh;
+}
+
+.main-wrapper {
   display: grid;
-  grid-template-columns: 1fr 11fr;
-  background: rgb(238,174,202);
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-}
+  grid-template-columns: 220px auto 220px;
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  main {
+    margin: 0 auto;
+    width: 80%;
+    padding-top: var(--x-large);
+
+    .items-container {
+      div, button, svg {
+        display: inline-block;
+        margin: var(--normal)
+      }
+    }
   }
 }
 
-@media (max-width: 1140px) {
-  .main-left {
-    width: 100%;
-  }
-  
-  pre[class*="language-"] {
-    font-size: 0.8rem;
+.code-container {
+  width: 96%;
+}
+
+@media (max-width: 1500px) {
+  .main-wrapper {
+    display: grid;
+    grid-template-columns: 220px auto;
+
+    main {
+      margin: 0 auto;
+      width: 100%;
+    }
   }
 
-  .main-right {
+  .right-sidebar {
     display: none;
+  }
+}
+
+/* Left Sidebar */
+.left-sidebar {
+  .sidebar-header {
+    display: flex;
+    padding: var(--normal);
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  
+    h2 {
+      align-self: center;
+      padding-left: var(--small);
+    }
+  }
+
+  .links {
+    list-style: none;
+
+    li {
+      padding: var(--normal);
+      padding-left: var(--x-large);
+
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color: var(--color-secondary);
+      }
+    }
+  }
+}
+
+/* Right Sidebar */
+.right-sidebar {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: var(--small) 0;
+    }
   }
 }

@@ -3,19 +3,17 @@ import Sidebar from '../UI/Sidebar/Sidebar';
 import ContentNav from '../UI/ContentNav/ContentNav';
 
 const Root = () => {
-  return <>
-    <aside>
+  return <div className="main-wrapper">
+    <aside className="left-sidebar">
       <Sidebar />
     </aside>
     <main>
-      <div className="main-left">
-        <Outlet  />
-      </div>
-      <div className="main-right">
-        <ContentNav />
-      </div>
+      <Outlet  />
     </main>
-  </>
+    <aside className="right-sidebar">
+      <ContentNav />
+    </aside>
+  </div>
 };
 
 export default Root;

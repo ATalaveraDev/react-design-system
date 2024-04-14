@@ -10,7 +10,7 @@ const ButtonsPage = () => {
 
   return <>
     <h1>Buttons</h1>
-    <section className="buttons-container">
+    <section className="items-container">
       <Button>No styles</Button>
       <Button basic type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
     </section>

@@ -11,7 +11,7 @@ const TooltipsPage = () => {
 
   return <>
     <h1>Tooltips</h1>
-    <section className="tooltips-container">
+    <section className="items-container">
       <Tooltip>This is a basic tooltip (bottom default tail)</Tooltip>
       <Tooltip tailPosition='right'>This is a basic tooltip (right tail)</Tooltip>
       <Tooltip tailPosition='top'>This is a basic tooltip (top tail)</Tooltip>

@@ -8,7 +8,9 @@ const CodeSnippet: FC<{code: string}> = ({code}) => {
     Prism.highlightAll();
   }, []);
 
-  return <pre><code className="language-javascript">{code}</code></pre>
+  return <div className="code-container">
+    <pre><code className="language-javascript">{code}</code></pre>
+  </div>;
 };
 
 export default CodeSnippet;

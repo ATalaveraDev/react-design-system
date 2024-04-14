@@ -13,7 +13,7 @@ const ChartsPage = () => {
   
   return <>
     <h1>Axis & Responsive Charts (In progress)</h1>
-    <section className="charts-container">
+    <section>
       <ResponsiveChart 
         renderX={(range: number[]) => <HorizontalAxis range={range} domain={[0, 180]} color="red" tickColor="black" tickHeight="5" />}
         renderY={(range: number[]) => <VerticalAxis range={range} domain={[0, 50]} color="red" tickColor="red" tickWidth="5" />}
