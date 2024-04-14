@@ -2,7 +2,7 @@
 
 A pet project to face the difficulties of creating a design system in which components can be customized.
 
-![Demo](https://react-design-system-c323e.web.app)
+[Demo](https://react-design-system-c323e.web.app)
 
 
 ![react-design-system-frontend](https://react-design-system-c323e.web.app/img1.png)
