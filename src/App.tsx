@@ -6,12 +6,17 @@ import Root from './pages/Root';
 import TooltipsPage from './pages/Tooltips';
 import CirclesPage from './pages/Circles';
 import ChartsPage from './pages/Charts';
+import Cover from './pages/Cover';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     children: [
+      {
+        path: '',
+        element: <Cover />
+      },
       {
         path: '/buttons',
         element: <ButtonsPage />

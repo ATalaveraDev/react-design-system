@@ -1,6 +1,5 @@
-import CodeSnippet from '../UI/CodeSnippet/CodeSnippet';
-import ContentNav from '../UI/ContentNav/ContentNav';
 import Circle from '../components/Circle/Circle';
+import CodeSnippet from '../UI/CodeSnippet/CodeSnippet';
 
 const CirclesPage = () => {
   const snippet = `

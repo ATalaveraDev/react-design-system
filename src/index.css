@@ -41,6 +41,18 @@ pre[class*="language-"] {
   min-height: 100vh;
 }
 
+.text-info {
+  color: #DFE;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.cover-text {
+  margin: 20px auto;
+  width: 90%;
+  text-align: justify;
+}
+
 .main-wrapper {
   display: grid;
   grid-template-columns: 220px auto 220px;
@@ -70,7 +82,10 @@ pre[class*="language-"] {
 
     main {
       margin: 0 auto;
+      padding-left: var(--small);
+      padding-right: var(--small);
       width: 100%;
+      box-sizing: border-box;
     }
   }
 

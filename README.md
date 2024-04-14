@@ -1,26 +1,31 @@
-# Design System using React + TypeScript
+# React Design System
 
-### Work in progress...
+A pet project to face the difficulties of creating a design system in which components can be customized.
 
-The purpose of this repository is to create a design system using React.
 
-## Features
-[&#10004;] Components should be customizable
+## Table Of Content
+
+- [Components](#components)
+- [Installation](#installation)
+- [Execution](#execution)
 
 ## Components
-- Buttons
-- Circles
-- Tooltips
-- Charts and Axis
+  - Buttons
 
-### Charts and Axis
-Using D3 but keeping always control of the DOM.
+  - Tooltips
 
-### Buttons
-ToDo: Add description
+  - Circles
 
-### Circles
-ToDo: Add description
+  - Responsive Charts
 
-### Tooltips
-ToDo: Add description
+
+## Installation
+```
+yarn install
+```
+
+
+## Execution
+```
+yarn dev
+```

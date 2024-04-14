@@ -1,8 +1,11 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
+
 import Sidebar from '../UI/Sidebar/Sidebar';
 import ContentNav from '../UI/ContentNav/ContentNav';
 
 const Root = () => {
+  const router = useLocation();
+
   return <div className="main-wrapper">
     <aside className="left-sidebar">
       <Sidebar />
@@ -10,9 +13,9 @@ const Root = () => {
     <main>
       <Outlet  />
     </main>
-    <aside className="right-sidebar">
+    {router.pathname !== '/' && <aside className="right-sidebar">
       <ContentNav />
-    </aside>
+    </aside>}
   </div>
 };
 
