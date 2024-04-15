@@ -7,15 +7,27 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
-  border-color: #646cff;
 }
 
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 1px solid #FB6;
 }
 
 .basic {
   background-color: var(--color-primary);
   color: var(--white);
+}
+
+.small {
+  height: 1.6rem;
+  width: 4rem;
+  font-size: var(--small);
+  padding: 0;
+}
+
+.large {
+  height: 3rem;
+  width: 6rem;
+  font-size: var(--large);
 }
