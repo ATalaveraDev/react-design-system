@@ -1,26 +1,20 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, useEffect, useRef } from 'react';
 import './Button.css';
+import React from 'react';
+import styler from '../../helpers/styler';
 
 const sizes = ['small', 'large'] as const;
 type Size = typeof sizes[number];
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { 
   bgcolor?: string;
+  color?: string;
   size?: Size;
 };
 
 const Button: FC<ButtonProps> = (data) => {
-  const {bgcolor, size, children} = data;
-  let btnStyles = ``;
+  const {bgcolor, color, size, children} = data;
   let className = '';
-
-  const sheets = document.styleSheets;
-  const lastStyleSheet = sheets[sheets.length - 1];
-
-
-  if (bgcolor) {
-    btnStyles += `background-color: ${bgcolor};`;
-  }
 
   const isValid = (size: Size) => {
     if (!sizes.includes(size)) {
@@ -34,16 +28,29 @@ const Button: FC<ButtonProps> = (data) => {
     className += ` ${size}`;
   }
 
-  if (btnStyles) {
-    btnStyles = `.custom {
-      ${btnStyles}
-    }`
-    lastStyleSheet.insertRule(btnStyles, lastStyleSheet.cssRules.length);
-    className += ' custom';
+  let style = '';
+
+  if (bgcolor) {
+    style += `background-color: ${bgcolor};`;
   }
 
+  if (color) {
+    style += `color: ${color};`;
+  }
 
-  return <button className={className} {...data}>{children}</button>
+  const MyButton: React.FC<any> = ({ children }) => {
+    const ref = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+      ref.current!.setAttribute('style', style)
+    }, []);
+    
+    return <button className={className} {...data} ref={ref}>{children}</button>;
+  };
+
+  const dynamicComponent = styler(MyButton, { children, style, className });
+
+  return <>{dynamicComponent}</>
 };
 
 export default Button;
