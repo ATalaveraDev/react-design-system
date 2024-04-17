@@ -9,7 +9,7 @@ test('should have text', () => {
 });
 
 test('should display button of type basic', () => {
-  render(<Button basic>Basic</Button>);
+  render(<Button>Basic</Button>);
 
   expect(screen.getByText('Basic')).toHaveClass('basic');
 });

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, useEffect, useRef } from 'react';
+import { ButtonHTMLAttributes, FC, useEffect } from 'react';
 import './Button.css';
 import React from 'react';
 import styler from '../../helpers/styler';
@@ -14,6 +14,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<ButtonProps> = (data) => {
   const {bgcolor, color, size, children} = data;
+
+  useEffect( () => () => {
+    console.log("unmount")
+  }, []);
+
   let className = '';
 
   const isValid = (size: Size) => {
