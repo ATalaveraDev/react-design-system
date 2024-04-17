@@ -38,14 +38,8 @@ const Button: FC<ButtonProps> = (data) => {
     style += `color: ${color};`;
   }
 
-  const MyButton: React.FC<any> = ({ children }) => {
-    const ref = useRef<HTMLButtonElement>(null);
-
-    useEffect(() => {
-      ref.current!.setAttribute('style', style)
-    }, []);
-    
-    return <button className={className} {...data} ref={ref}>{children}</button>;
+  const MyButton: React.FC<any> = ({ children, ...props }) => {    
+    return <button className={`${props.styleid}${className}`} {...data}>{children}</button>;
   };
 
   const dynamicComponent = styler(MyButton, { children, style, className });
