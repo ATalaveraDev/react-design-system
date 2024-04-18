@@ -5,10 +5,10 @@ import Button from '../components/Button/Button';
 
 const ButtonsPage = () => {
   const snippet = `
-    <Button bgcolor="blueviolet" size="small">Small</Button>
-    <Button bgcolor="green" type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
+    <Button bgcolor={() => 'red'} color="white" size="small">Small</Button>
+    <Button bgcolor="green" color="white" type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
     <Button bgcolor="blueviolet" color="white" size="large">Large</Button>
-    <Button>No styles</Button>
+    <Button ref={ref} onClick={handler}>No styles</Button>
   `;
 
   const ref = useRef<HTMLButtonElement>(null)
@@ -23,8 +23,8 @@ const ButtonsPage = () => {
       <p></p>
     </section>
     <section className="items-container">
-      <Button bgcolor={() => 'red'} size="small">Small</Button>
-      <Button bgcolor="green" type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
+      <Button bgcolor={() => 'red'} color="white" size="small">Small</Button>
+      <Button bgcolor="green" color="white" type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
       <Button bgcolor="blueviolet" color="white" size="large">Large</Button>
       <Button ref={ref} onClick={handler}>No styles</Button>
     </section>
@@ -34,7 +34,6 @@ const ButtonsPage = () => {
     </section>
     <section>
       <h3>API Reference</h3>
-      {/* {styler('button')`background-color: red`} */}
     </section>
   </>
 };
