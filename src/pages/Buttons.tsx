@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import CodeSnippet from '../UI/CodeSnippet/CodeSnippet';
 
 import Button from '../components/Button/Button';
@@ -10,16 +11,22 @@ const ButtonsPage = () => {
     <Button>No styles</Button>
   `;
 
+  const ref = useRef<HTMLButtonElement>(null)
+
+  const handler = () => {
+    ref.current!.innerText = 'Ref test';
+  }
+
   return <>
     <h1>Buttons</h1>
     <section>
       <p></p>
     </section>
     <section className="items-container">
-      <Button bgcolor="blueviolet" size="small">Small</Button>
+      <Button bgcolor={() => 'red'} size="small">Small</Button>
       <Button bgcolor="green" type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
       <Button bgcolor="blueviolet" color="white" size="large">Large</Button>
-      <Button>No styles</Button>
+      <Button ref={ref} onClick={handler}>No styles</Button>
     </section>
     <section>
       <h3>Anatomy</h3>

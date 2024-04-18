@@ -1,23 +1,18 @@
-import { ButtonHTMLAttributes, FC, useEffect } from 'react';
+import { ButtonHTMLAttributes, Ref, forwardRef } from 'react';
 import './Button.css';
-import React from 'react';
 import styler from '../../helpers/styler';
 
 const sizes = ['small', 'large'] as const;
 type Size = typeof sizes[number];
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { 
-  bgcolor?: string;
+  bgcolor?: string | Function;
   color?: string;
   size?: Size;
 };
 
-const Button: FC<ButtonProps> = (data) => {
-  const {bgcolor, color, size, children} = data;
-
-  useEffect( () => () => {
-    console.log("unmount")
-  }, []);
+const Button = forwardRef((data: ButtonProps, ref: Ref<HTMLButtonElement>) => {
+  const {bgcolor, color, size, ...restProps} = data;
 
   let className = '';
 
@@ -36,20 +31,26 @@ const Button: FC<ButtonProps> = (data) => {
   let style = '';
 
   if (bgcolor) {
-    style += `background-color: ${bgcolor};`;
+    const bgColor = bgcolor instanceof Function ? bgcolor() : bgcolor;
+    style += `background-color: ${bgColor};`;
   }
 
   if (color) {
     style += `color: ${color};`;
   }
 
-  const MyButton: React.FC<any> = ({ children, ...props }) => {    
-    return <button className={`${props.styleid}${className}`} {...data}>{children}</button>;
-  };
+  const MyButton = forwardRef((props: ButtonProps & {styleid: string}, ref: Ref<HTMLButtonElement>) => {
+    const customProps = {
+      ...restProps,
+      className: `${props.styleid}${className}`
+    }
+    
+    return <button ref={ref} {...customProps}>{customProps.children}</button>;
+  });
 
-  const dynamicComponent = styler(MyButton, { children, style, className });
+  const dynamicComponent = styler(MyButton, { children: restProps.children, style, className, ref });
 
   return <>{dynamicComponent}</>
-};
+});
 
 export default Button;
