@@ -6,7 +6,7 @@ import Button from '../components/Button/Button';
 const ButtonsPage = () => {
   const snippet = `
     <Button bgcolor={() => 'red'} color="white" size="small">Small</Button>
-    <Button bgcolor="green" color="white" type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
+    <Button bgcolor="#3ea93e" color="white" type="submit" onClick={() => alert('Hey! Listen!')}>Regular</Button>
     <Button bgcolor="blueviolet" color="white" size="large">Large</Button>
     <Button ref={ref} onClick={handler}>No styles</Button>
   `;
@@ -20,11 +20,11 @@ const ButtonsPage = () => {
   return <>
     <h1>Buttons</h1>
     <section>
-      <p></p>
+      <p>This component allows you to create buttons by customizing their size and color. Any <b>native properties</b> are also supported. You can use refs or any react event</p>
     </section>
     <section className="items-container">
       <Button bgcolor={() => 'red'} color="white" size="small">Small</Button>
-      <Button bgcolor="green" color="white" type="submit" onClick={() => alert('Hey! Listen!')}>Basic</Button>
+      <Button bgcolor="#3ea93e" color="white" type="submit" onClick={() => alert('Hey! Listen!')}>Regular</Button>
       <Button bgcolor="blueviolet" color="white" size="large">Large</Button>
       <Button ref={ref} onClick={handler}>No styles</Button>
     </section>
@@ -34,7 +34,24 @@ const ButtonsPage = () => {
     </section>
     <section>
       <h3>API Reference</h3>
-
+      <article>
+        <div className="property-desc">
+          <div>PROPERTY</div>
+          <div>TYPE</div>
+        </div>
+        <div className="property-desc">
+          <div>bgcolor</div>
+          <div>string | Function</div>
+        </div>
+        <div className="property-desc">
+          <div>color</div>
+          <div>string | Function</div>
+        </div>
+        <div className="property-desc">
+          <div>size</div>
+          <div>small | large</div>
+        </div>
+      </article>
     </section>
   </>
 };
