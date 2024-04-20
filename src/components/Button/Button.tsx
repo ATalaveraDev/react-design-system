@@ -5,30 +5,33 @@ import styler from '../../helpers/styler';
 const sizes = ['small', 'large'] as const;
 type Size = typeof sizes[number];
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> { 
+type ButtonProps = { 
   bgcolor?: string | Function;
-  color?: string;
+  color?: string | Function;
   size?: Size;
-};
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>;
 
 const Button = forwardRef((data: ButtonProps, ref: Ref<HTMLButtonElement>) => {
   const {bgcolor, color, size, ...restProps} = data;
 
   let className = '';
+  let style = '';
 
   const isValid = (size: Size) => {
     if (!sizes.includes(size)) {
-      throw new Error('Invalid type provided to size attribute');
+      throw new Error('Invalid type provided for size attribute');
     }
 
     return true;
   };
   
-  if (size && isValid(size)) {
-    className += ` ${size}`;
+  if (size) {
+    if (isValid(size)) {
+      className += ` ${size}`;
+    } else {
+      throw new Error('Provided invalid size value');
+    }
   }
-
-  let style = '';
 
   if (bgcolor) {
     const bgColor = bgcolor instanceof Function ? bgcolor() : bgcolor;
@@ -36,7 +39,8 @@ const Button = forwardRef((data: ButtonProps, ref: Ref<HTMLButtonElement>) => {
   }
 
   if (color) {
-    style += `color: ${color};`;
+    const myColor = color instanceof Function ? color() : color;
+    style += `color: ${myColor};`;
   }
 
   const MyButton = forwardRef((props: ButtonProps & {styleid: string}, ref: Ref<HTMLButtonElement>) => {

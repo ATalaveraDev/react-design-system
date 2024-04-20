@@ -15,7 +15,7 @@ const ButtonsPage = () => {
 
   const handler = () => {
     ref.current!.innerText = 'Ref test';
-  }
+  }; 
 
   return <>
     <h1>Buttons</h1>
@@ -34,6 +34,7 @@ const ButtonsPage = () => {
     </section>
     <section>
       <h3>API Reference</h3>
+
     </section>
   </>
 };
