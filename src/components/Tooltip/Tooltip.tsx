@@ -1,19 +1,19 @@
-import { FC, HTMLAttributes } from 'react';
+import { HTMLAttributes, Ref, forwardRef } from 'react';
 import './Tooltip.css';
 
-interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
+type TooltipProps = {
   tailPosition?: 'top' | 'bottom' | 'left' | 'right';
-};
+} & HTMLAttributes<HTMLDivElement>;
 
-const Tooltip: FC<TooltipProps> = ({children, tailPosition}) => {
-  let tooltipPosition = `triangle ${tailPosition ?? 'bottom'}`;
+const Tooltip = forwardRef((data: TooltipProps, ref: Ref<HTMLDivElement>) => {
+  let tooltipPosition = `triangle ${data.tailPosition ?? 'bottom'}`;
 
   return <>
-    <div className="tooltip">
-      {children}
+    <div className="tooltip" ref={ref}>
+      {data.children}
       <span className={tooltipPosition}></span>
     </div>
   </>
-};
+});
 
 export default Tooltip;
