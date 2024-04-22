@@ -23,6 +23,16 @@ const TooltipsPage = () => {
     </section>
     <section>
       <h3>API Reference</h3>
+      <article>
+        <div className="property-desc">
+          <div>PROPERTY</div>
+          <div>TYPE</div>
+        </div>
+        <div className="property-desc">
+          <div>tailPosition</div>
+          <div>right | top | left</div>
+        </div>
+      </article>
     </section>
   </>
 };
