@@ -11,6 +11,9 @@ const TooltipsPage = () => {
 
   return <>
     <h1>Tooltips</h1>
+    <section>
+      <p>This component allows you to create tooltips by customizing the position of the arrow. Any <b>native properties</b> are also supported. You can use refs or any react event</p>
+    </section>
     <section className="items-container">
       <Tooltip>This is a basic tooltip (bottom default tail)</Tooltip>
       <Tooltip tailPosition='right'>This is a basic tooltip (right tail)</Tooltip>
