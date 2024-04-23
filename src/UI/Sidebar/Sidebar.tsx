@@ -5,6 +5,7 @@ import logo from '/engine.svg'
 const Sidebar = () => {
   const elements = [
     { id: 'buttons', label: 'Buttons', path: '/buttons' },
+    { id: 'selects', label: 'Selects', path: '/selects' },
     { id: 'tooltips', label: 'Tooltips', path: '/tooltips' },
     { id: 'circles', label: 'Circles', path: '/circles' },
     { id: 'charts', label: 'Charts', path: '/charts' }

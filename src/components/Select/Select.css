@@ -1,0 +1,8 @@
+select {
+  height: 35px;
+  padding: 10px;
+  box-sizing: content-box;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}

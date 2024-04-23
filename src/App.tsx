@@ -7,6 +7,7 @@ import TooltipsPage from './pages/Tooltips';
 import CirclesPage from './pages/Circles';
 import ChartsPage from './pages/Charts';
 import Cover from './pages/Cover';
+import SelectsPage from './pages/Selects';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: '/buttons',
         element: <ButtonsPage />
+      },
+      {
+        path: '/selects',
+        element: <SelectsPage />
       },
       {
         path: '/tooltips',
