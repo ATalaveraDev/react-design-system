@@ -6,9 +6,14 @@ type SelectProps = {
 } & SelectHTMLAttributes<HTMLSelectElement>;
 
 const Select = forwardRef((data: SelectProps, ref: Ref<HTMLSelectElement>) => {
-  return <select ref={ref} {...data}>
-    {data.options.map((option, index) => <option key={`${option.value}-${index}`}>{option.text}</option>)}
-  </select>;
+  return <>
+    <div>
+      <button role="combobox" value="Select" aria-controls="listbox" aria-haspopup="listbox" tabIndex={0} aria-expanded="false"></button>
+    </div>
+    <ul role="listbox" id="options">
+      {data.options.map(option => <li role="option" data-value={option.value}>{option.text}</li>)}
+    </ul>
+  </>;
 });
 
 export default Select;
