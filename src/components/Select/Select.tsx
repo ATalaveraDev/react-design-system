@@ -1,12 +1,22 @@
-import { Ref, SelectHTMLAttributes, forwardRef, useState } from 'react';
+import { ButtonHTMLAttributes, FC, SelectHTMLAttributes, useState } from 'react';
 import './Select.css';
 
-type SelectProps = {
-  options: { value: string, text: string }[];
-} & SelectHTMLAttributes<HTMLSelectElement>;
+type Option = { value: string, text: string };
 
-const Select = (data: SelectProps) => {
+type SelectProps = {
+  options: Option[];
+  onChange?: (value: string) => void;
+} & SelectHTMLAttributes<HTMLSelectElement> & ButtonHTMLAttributes<HTMLButtonElement>;
+
+const Select: FC<SelectProps> = ({options, value, onChange, ...props}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const selected = options.find(option => option.value === value);
+
+  const selectHandler = (value: string) => {
+    onChange && onChange(value);
+    setIsDropdownOpen(false);
+  };
   
   return <>
       <button 
@@ -15,15 +25,19 @@ const Select = (data: SelectProps) => {
         aria-controls="default_select_namespace_options"
         aria-expanded={isDropdownOpen}
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        {...props}
       >
+        {selected?.text}
       </button>
       <ul
         className="select-options"
-        role="listbox"
         id="default_select_namespace_options"
+        role="listbox"
         aria-multiselectable="false"
       >
-        {data.options.map((option, index) => <li key={`${option.value}-${index}`} role="option" data-value={option.value}>{option.text}</li>)}
+        {options.map((option, index) => <li key={`${option.value}-${index}`} role="option" value={index}>
+          <label onClick={() => selectHandler(option.value)}>{option.text}</label>
+        </li>)}
       </ul>
   </>;
 };

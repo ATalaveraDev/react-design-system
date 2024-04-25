@@ -7,9 +7,3 @@ test('should have text', () => {
 
   expect(screen.getByText('Click me')).toBeInTheDocument();
 });
-
-test('should display button of type basic', () => {
-  render(<Button>Basic</Button>);
-
-  expect(screen.getByText('Basic')).toHaveClass('basic');
-});

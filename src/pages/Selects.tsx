@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import CodeSnippet from '../UI/CodeSnippet/CodeSnippet';
 import Select from '../components/Select/Select';
 
@@ -12,6 +12,7 @@ const SelectsPage = () => {
   const handler = () => {
     ref.current!.innerText = 'Ref test';
   }; 
+  const [selectValue, setSelectValue] = useState('');
 
   return <>
     <h1>Selects</h1>
@@ -20,10 +21,17 @@ const SelectsPage = () => {
     </section>
     <section className="items-container">
       <Select 
+        onChange={(value) => setSelectValue(value as string)}
+        value={selectValue}
+        disabled
         options={[
           {
-            value: 'value',
+            value: 'aaa',
             text: 'The value is super long long long'
+          },
+          {
+            value: 'bb',
+            text: 'The second option'
           }
         ]}
       />
