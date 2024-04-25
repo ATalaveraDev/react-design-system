@@ -26,7 +26,6 @@ const SelectsPage = () => {
             text: 'The value is super long long long'
           }
         ]}
-        onClick={() => alert('Hey! Listen!')}
       />
     </section>
     <section>
